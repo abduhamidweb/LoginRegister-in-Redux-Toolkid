@@ -1,23 +1,25 @@
-import React from 'react'
-import './login.css';
-import Inputs from '../../components/Input/Input';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import './login.css'
+import Inputs from '../../components/Input/Input'
+import { Link } from 'react-router-dom'
 const Login = () => {
+  const [loginUser, setLoginUser] = useState('')
+  const [loginCheck, setLoginCheck] = useState('')
   return (
     <>
       <div className='loginBg'>
-        <div class='grid'>
+        <div className='grid'>
           <form
             action='https://httpbin.org/post'
             method='POST'
-            class='form login'
+            className='form login'
           >
-            <div class='form__field'>
-              <label for='login__username'>
-                <svg class='icon'>
-                  <i class='bi bi-person-circle'></i>
+            <div className='form__field'>
+              <label htmlFor='login__username'>
+                <svg className='icon'>
+                  <i className='bi bi-person-circle'></i>
                 </svg>
-                <span class='hidden'>Username</span>
+                <span className='hidden'>Username</span>
               </label>
               <Inputs
                 autocomplete='username'
@@ -26,16 +28,16 @@ const Login = () => {
                 name='username'
                 clas='form__input'
                 placeholder='Username'
-                required
+                val={loginUser}
+                setVal={setLoginUser}
               />
             </div>
 
-            <div class='form__field'>
-              <label for='login__password'>
-                <svg class='icon'>
-                  <use xlink:href='#icon-lock'></use>
+            <div className='form__field'>
+              <label htmlFor='login__password'>
+                <svg className='icon'>
                 </svg>
-                <span class='hidden'>Password</span>
+                <span className='hidden'>Password</span>
               </label>
               <Inputs
                 id='login__password'
@@ -43,18 +45,19 @@ const Login = () => {
                 name='password'
                 clas='form__input'
                 placeholder='Password'
+                val={loginCheck}
+                setVal={setLoginCheck}
               />
             </div>
 
-            <div class='form__field'>
+            <div className='form__field'>
               <input type='submit' value='Sign In' />
             </div>
           </form>
 
-          <p class='text--center'>
+          <p className='text--center'>
             Not a member? <Link to={'/register'}>Sign up now</Link>
-            <svg class='icon'>
-              <use xlink:href='#icon-arrow-right'></use>
+            <svg className='icon'>
             </svg>
           </p>
         </div>

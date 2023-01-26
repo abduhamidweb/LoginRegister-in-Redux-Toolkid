@@ -1,10 +1,21 @@
 import React from 'react'
 
-const Inputs = ({ autocomplete, id, type, name, clas, placeholder }) => {
+const Inputs = ({
+  id,
+  type,
+  name,
+  clas,
+  placeholder,
+  val,
+  setVal,
+}) => {
   return (
     <>
       <input
-        autocomplete={autocomplete}
+        value={val}
+        onChange={(e) => {
+          setVal(e.target.value)
+        }}
         id={id}
         type={type}
         name={name}
