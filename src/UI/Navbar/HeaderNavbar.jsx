@@ -4,12 +4,15 @@ import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import { Link } from 'react-router-dom'
 
 function HeaderNavbar() {
   return (
-    <Navbar expand='lg'>
+    <Navbar expand='lg' bg='dark' variant='dark'>
       <Container>
-        <Navbar.Brand href='#'>Navbar scroll</Navbar.Brand>
+        <Navbar.Brand>
+          <Link to={'/'}> My Form</Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls='navbarScroll' />
         <Navbar.Collapse id='navbarScroll'>
           <Nav
@@ -33,15 +36,9 @@ function HeaderNavbar() {
               Link
             </Nav.Link>
           </Nav>
-          <Form className='d-flex'>
-            <Form.Control
-              type='search'
-              placeholder='Search'
-              className='me-2'
-              aria-label='Search'
-            />
-            <Button variant='outline-success'>Search</Button>
-          </Form>
+          <Button variant='dark' onClick={() => {
+            alert(1)
+          }}> Logoute</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

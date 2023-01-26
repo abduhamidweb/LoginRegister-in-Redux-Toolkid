@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Inputs from '../../components/Input/Input'
 
 const Register = () => {
   return (
@@ -17,15 +19,13 @@ const Register = () => {
                 </svg>
                 <span class='hidden'>Username</span>
               </label>
-
-              <input
+              <Inputs
                 autocomplete='username'
                 id='login__username'
                 type='text'
                 name='username'
                 class='form__input'
                 placeholder='Username'
-                required
               />
             </div>
             <div class='form__field'>
@@ -35,15 +35,13 @@ const Register = () => {
                 </svg>
                 <span class='hidden'>Username</span>
               </label>
-
-              <input
+              <Inputs
                 autocomplete='username'
                 id='login__email'
                 type='text'
                 name='user Email'
                 class='form__input'
                 placeholder='UserEmail'
-                required
               />
             </div>
             <div class='form__field'>
@@ -53,13 +51,12 @@ const Register = () => {
                 </svg>
                 <span class='hidden'>Password</span>
               </label>
-              <input
+              <Inputs
                 id='login__password'
                 type='password'
                 name='password'
-                class='form__input'
+                clas='form__input'
                 placeholder='Password'
-                required
               />
             </div>
 
@@ -69,7 +66,7 @@ const Register = () => {
           </form>
 
           <p class='text--center'>
-            Not a member? <a href='#'>Sign up now</a>{' '}
+            Not a member? <Link to={'/login'}>Sign up now</Link>
             <svg class='icon'>
               <use xlink:href='#icon-arrow-right'></use>
             </svg>
