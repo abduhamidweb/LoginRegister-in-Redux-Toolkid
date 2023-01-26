@@ -35,8 +35,7 @@ const Login = () => {
 
             <div className='form__field'>
               <label htmlFor='login__password'>
-                <svg className='icon'>
-                </svg>
+                <svg className='icon'></svg>
                 <span className='hidden'>Password</span>
               </label>
               <Inputs
@@ -57,8 +56,7 @@ const Login = () => {
 
           <p className='text--center'>
             Not a member? <Link to={'/register'}>Sign up now</Link>
-            <svg className='icon'>
-            </svg>
+            <svg className='icon'></svg>
           </p>
         </div>
       </div>

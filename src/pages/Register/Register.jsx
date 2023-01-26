@@ -16,8 +16,7 @@ const Register = () => {
           >
             <div className='form__field'>
               <label htmlFor='login__username'>
-                <svg className='icon'>
-                </svg>
+                <svg className='icon'></svg>
                 <span className='hidden'>Username</span>
               </label>
               <Inputs
@@ -33,8 +32,7 @@ const Register = () => {
             </div>
             <div className='form__field'>
               <label htmlFor='login__email'>
-                <svg className='icon'>
-                </svg>
+                <svg className='icon'></svg>
                 <span className='hidden'>Username</span>
               </label>
               <Inputs
@@ -50,8 +48,7 @@ const Register = () => {
             </div>
             <div className='form__field'>
               <label htmlFor='login__password'>
-                <svg className='icon'>
-                </svg>
+                <svg className='icon'></svg>
                 <span className='hidden'>Password</span>
               </label>
               <Inputs
@@ -72,11 +69,9 @@ const Register = () => {
 
           <p className='text--center'>
             Not a member? <Link to={'/login'}>Sign up now</Link>
-            <svg className='icon'>
-            </svg>
+            <svg className='icon'></svg>
           </p>
         </div>
-
       </div>
     </>
   )
