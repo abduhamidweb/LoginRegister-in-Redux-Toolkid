@@ -2,16 +2,25 @@ import React, { useState } from 'react'
 import './login.css'
 import Inputs from '../../components/Input/Input'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginUserStart } from '../../slice/auth'
 const Login = () => {
   const [loginUser, setLoginUser] = useState('')
   const [loginCheck, setLoginCheck] = useState('')
+  const { isLoading } = useSelector((state) => state.auth)
+  const dispach = useDispatch()
+  function hendlerFrom(e) {
+    e.preventDefault()
+    dispach(loginUserStart())
+  }
   return (
     <>
       <div className='loginBg'>
         <div className='grid'>
           <form
-            action='https://httpbin.org/post'
-            method='POST'
+            // action='https://httpbin.org/post'
+            // method='POST'
+            onSubmit={hendlerFrom}
             className='form login'
           >
             <div className='form__field'>
@@ -50,7 +59,7 @@ const Login = () => {
             </div>
 
             <div className='form__field'>
-              <input type='submit' value='Sign In' />
+              <input type='submit' value={isLoading ? 'Loading...' : 'Login'} />
             </div>
           </form>
 
