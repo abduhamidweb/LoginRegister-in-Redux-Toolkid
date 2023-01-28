@@ -1,18 +1,35 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Inputs from '../../components/Input/Input'
+import Inputs from '../../components/Input/Input';
+import { useSelector, useDispatch } from 'react-redux';
+import { registerUserFailure, registerUserStart, registernUserSuccess } from '../../slice/auth';
+
 const Register = () => {
   const [userName, setUserName] = useState('')
   const [userPass, setUserPass] = useState('')
-  const [userEmail, setUserEmail] = useState('')
+  const [userEmail, setUserEmail] = useState('');
+  const dispacher = useDispatch();
+  const { isLoading } = useSelector((state) => state.auth);
+  function hendlerFormRegister(e) {
+    e.preventDefault();
+    dispacher(registerUserStart());
+    try {
+      dispacher(registernUserSuccess())
+    } catch (e) {
+      console.log(e);
+      dispacher(registerUserFailure())
+    }
+  }
   return (
     <>
+      {/*  */}
       <div className='loginBg'>
         <div className='grid'>
           <form
-            action='https://httpbin.org/post'
-            method='POST'
+            // action='https://httpbin.org/post'
+            // method='POST'
             className='form login'
+            onSubmit={hendlerFormRegister}
           >
             <div className='form__field'>
               <label htmlFor='login__username'>
@@ -63,10 +80,9 @@ const Register = () => {
             </div>
 
             <div className='form__field'>
-              <input type='submit' value='Sign In' />
+              <input type='submit' value={isLoading ? "Loading..." : "Register"}  />
             </div>
           </form>
-
           <p className='text--center'>
             Not a member? <Link to={'/login'}>Sign up now</Link>
             <svg className='icon'></svg>
