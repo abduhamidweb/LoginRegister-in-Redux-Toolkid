@@ -4,15 +4,30 @@ const initialState = {
   loggedIn: false,
   error: null,
   user: null,
+  count: 0,
+};
+const backgraung = {
+  color: "#FFFFFF",
+  backGraundColor: "#0000",
 }
+// console.log(initialState.count);
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  backgraung,
+
   reducers: {
+    changBackgraund: (state2) => {
+      state2.color = `fff`
+    },
     // LOGIN
     loginUserStart: (state) => {
       state.isLoading = true
     },
+    setCount: (state) => {
+      state.count += 1
+    },
+
     loginUserSuccess: (state) => {},
     loginUserFailure: (state) => {},
     // LOGIN
@@ -34,5 +49,7 @@ export const {
   registerUserStart,
   registernUserSuccess,
   registerUserFailure,
+  changBackgraund,
+  setCount,
 } = authSlice.actions
 export default authSlice.reducer

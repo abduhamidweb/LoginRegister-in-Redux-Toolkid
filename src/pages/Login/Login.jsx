@@ -4,10 +4,11 @@ import Inputs from '../../components/Input/Input'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUserStart } from '../../slice/auth'
+import { setCount , changBackgraund} from '../../slice/auth'
 const Login = () => {
   const [loginUser, setLoginUser] = useState('')
   const [loginCheck, setLoginCheck] = useState('')
-  const { isLoading } = useSelector((state) => state.auth)
+  const { isLoading, count, color } = useSelector((state) => state.auth)
   const dispach = useDispatch()
   function hendlerFrom(e) {
     e.preventDefault()
@@ -15,6 +16,12 @@ const Login = () => {
   }
   return (
     <>
+      <button onClick={() => { dispach(changBackgraund()) }}>  color {color}</button>
+      <button onClick={() =>
+        dispach(setCount()
+         
+        
+        )}> Add {count} </button>
       <div className='loginBg'>
         <div className='grid'>
           <form
